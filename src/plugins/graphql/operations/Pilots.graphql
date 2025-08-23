@@ -1,0 +1,8 @@
+query Pilots($page: Int!, $perPage: Int!){
+    pilots(page:$page, perPage: $perPage){
+        page
+        perPage
+        totalPages
+        items { id name location color }
+    }
+}

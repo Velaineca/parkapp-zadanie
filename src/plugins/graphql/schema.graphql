@@ -1,0 +1,38 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  me: User
+  pilots(page: Int!, perPage: Int!): PilotPage!
+}
+
+type Mutation {
+  login(email: String!, password: String!): AuthPayload!
+}
+
+type User {
+  id: ID!
+  email: String!
+  name: String
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type Pilot {
+  id: ID!
+  name: String!
+  location: String
+  color: String
+}
+
+type PilotPage {
+  items: [Pilot!]!
+  page: Int!
+  perPage: Int!
+  totalPages: Int!
+}
