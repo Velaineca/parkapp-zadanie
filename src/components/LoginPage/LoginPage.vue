@@ -20,7 +20,8 @@ const { mutate, loading, error, onDone } = useMutation(LoginDocument)
 
 onDone(({ data }) => {
   if(data?.login.token){
-    localStorage.setItem("authToken", data.login.token)
+    sessionStorage.setItem("authToken", data.login.token)
+    sessionStorage.setItem("userGates", JSON.stringify(data.login.user.gates ?? []))
     success.value = true
     Object.assign(userData, data.login.user)
     console.log("Loggin in as:", data.login.user)

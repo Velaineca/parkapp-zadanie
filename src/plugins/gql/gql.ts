@@ -14,14 +14,10 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
-    "\n  query PilotsTest($page: Int!, $perPage:Int!){\n    pilots(page: $page, perPage: $perPage){\n      totalPages\n      items { id name }\n    }\n  }\n": typeof types.PilotsTestDocument,
-    "mutation Login($email: String!, $password: String!) {\n  login(email: $email, password: $password) {\n    token\n    user {\n      id\n      email\n      name\n    }\n  }\n}": typeof types.LoginDocument,
-    "query Pilots($page: Int!, $perPage: Int!) {\n  pilots(page: $page, perPage: $perPage) {\n    page\n    perPage\n    totalPages\n    items {\n      id\n      name\n      location\n      color\n    }\n  }\n}": typeof types.PilotsDocument,
+    "mutation Login($email: String!, $password: String!) {\n  login(email: $email, password: $password) {\n    token\n    user {\n      id\n      email\n      name\n      gates\n    }\n  }\n}": typeof types.LoginDocument,
 };
 const documents: Documents = {
-    "\n  query PilotsTest($page: Int!, $perPage:Int!){\n    pilots(page: $page, perPage: $perPage){\n      totalPages\n      items { id name }\n    }\n  }\n": types.PilotsTestDocument,
-    "mutation Login($email: String!, $password: String!) {\n  login(email: $email, password: $password) {\n    token\n    user {\n      id\n      email\n      name\n    }\n  }\n}": types.LoginDocument,
-    "query Pilots($page: Int!, $perPage: Int!) {\n  pilots(page: $page, perPage: $perPage) {\n    page\n    perPage\n    totalPages\n    items {\n      id\n      name\n      location\n      color\n    }\n  }\n}": types.PilotsDocument,
+    "mutation Login($email: String!, $password: String!) {\n  login(email: $email, password: $password) {\n    token\n    user {\n      id\n      email\n      name\n      gates\n    }\n  }\n}": types.LoginDocument,
 };
 
 /**
@@ -41,15 +37,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query PilotsTest($page: Int!, $perPage:Int!){\n    pilots(page: $page, perPage: $perPage){\n      totalPages\n      items { id name }\n    }\n  }\n"): (typeof documents)["\n  query PilotsTest($page: Int!, $perPage:Int!){\n    pilots(page: $page, perPage: $perPage){\n      totalPages\n      items { id name }\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "mutation Login($email: String!, $password: String!) {\n  login(email: $email, password: $password) {\n    token\n    user {\n      id\n      email\n      name\n    }\n  }\n}"): (typeof documents)["mutation Login($email: String!, $password: String!) {\n  login(email: $email, password: $password) {\n    token\n    user {\n      id\n      email\n      name\n    }\n  }\n}"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "query Pilots($page: Int!, $perPage: Int!) {\n  pilots(page: $page, perPage: $perPage) {\n    page\n    perPage\n    totalPages\n    items {\n      id\n      name\n      location\n      color\n    }\n  }\n}"): (typeof documents)["query Pilots($page: Int!, $perPage: Int!) {\n  pilots(page: $page, perPage: $perPage) {\n    page\n    perPage\n    totalPages\n    items {\n      id\n      name\n      location\n      color\n    }\n  }\n}"];
+export function graphql(source: "mutation Login($email: String!, $password: String!) {\n  login(email: $email, password: $password) {\n    token\n    user {\n      id\n      email\n      name\n      gates\n    }\n  }\n}"): (typeof documents)["mutation Login($email: String!, $password: String!) {\n  login(email: $email, password: $password) {\n    token\n    user {\n      id\n      email\n      name\n      gates\n    }\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
