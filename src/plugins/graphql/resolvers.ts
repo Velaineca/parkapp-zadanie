@@ -1,30 +1,22 @@
 type Ctx = unknown
 
-
-const PILOTS = Array.from({ length: 12 }).map((_, i) => ({
-    id: String(i + 1),
-    name: `Gate ${i + 1}`,
-    location: ['A', 'B', 'C'][i % 3],
-    color: ['#2563eb', '#16a34a', '#f59e0b'][i % 3],
-}))
+const USERS = [
+    {id:"u1", email:"zadanie@test.pl", name:"Test User", password:"test123"},
+    {id:"u2", email:"testowicz@test.pl", name:"Testowicz Testerski", password:"testowicz"},
+    {id:"u3", email:"testowska@test.pl", name:"Testowska Testowiłówna", password:"123!"},
+]
 
 export default {
-    Query:{
-        me:()=> ({id: 'u1', email:'zadanie@test.pl', name:'Test User'}),
-        pilots: (_:unknown, args: {page:number; perPage:number}) => {
-            const {page,perPage} = args
-            const start = (page -1) * perPage
-            const items = PILOTS.slice(start,start + perPage)
-            const totalPages = Math.ceil(PILOTS.length / perPage)
-            return {items, page, perPage, totalPages}
-        },
-    },
-
     Mutation:{
         login:(_: unknown, args: {email:string; password:string}, _ctx:Ctx) =>{
+            const user = USERS.find(user => user.email === args.email)
+            if(!args.email || !args.password)throw new Error("Type both email and password.")
+            if(!user)throw new Error("User not found.")
+            if(user.password !== args.password) throw new Error("Invalid password.")
+
           return{
-              token:'mock-token-01',
-              user:{id:'u1',email: args.email, name:'Test User'},
+              token:'mock-token-' + user.id,
+              user:{id:user.id,email: user.email, name:user.name},
           }
         },
     }

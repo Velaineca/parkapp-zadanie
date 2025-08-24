@@ -1,6 +1,6 @@
 import App from '/src/App.vue';
-import LoginPage from '/src/components/LoginPage.vue';
-import PilotPage from '/src/components/PilotPage.vue';
+import LoginPage from '/src/components/LoginPage/LoginPage.vue';
+import PilotPage from '/src/components/PilotPage/PilotPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
