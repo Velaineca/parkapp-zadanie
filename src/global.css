@@ -1,15 +1,5 @@
 @import 'tailwindcss';
 
-/*
-Colors:
-#F3AD3E; - primary yellow
-#15215C; - main blue
-#FADF99  -  FFB034  - gradient
-
-Fonts:
-DM Sans, Lato -btns, Poppins -h1
-*/
-
 :root {
   font-family: "DM Sans", sans-serif;
   line-height: 1.5;
@@ -32,8 +22,6 @@ body {
 }
 
 #app {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }

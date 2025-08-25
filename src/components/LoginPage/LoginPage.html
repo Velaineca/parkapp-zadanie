@@ -1,23 +1,27 @@
-<section class="border-[1.44px] border-[#15215C] rounded-2xl px-8 py-4">
-    <h1 class="font-[Poppins] font-bold text-[32px] text-left">Login</h1>
-    <form @submit.prevent="onSubmit" class="flex flex-col gap-2 items-center mb-2 mt-5">
-        <input v-model="email" type="email" placeholder="Email"
-               class="border-[1.44px] border-[#15215C] rounded-[11.5px] px-4 py-1 text-[17.25px]"/>
-        <input v-model="password" type="password" placeholder="Password"
-               class="border-[1.44px] border-[#15215C] rounded-[11.5px] px-4 py-1 text-[17.25px]"/>
-        <button type="submit" :disabled="loading || success"
-                class="bg-[#15215C] text-white rounded-[11.5px] px-4 py-1 text-[17.25px] mt-3 w-full">
-            <span v-if="loading">Logging in...</span>
-            <span v-else-if="success">Loading...</span>
-            <span v-else>Log in</span>
-        </button>
+<div class="w-screen h-screen flex justify-center items-center bg-gradient-to-t from-[#FADF99] from-[30%] to-[#FFB034] to-[100%] overflow-hidden relative">
+    <section class="rounded-2xl px-8 py-4 bg-white drop-shadow-[0_4px_5px_rgba(0,0,0,0.08)]
+after:content-['']
+after:block after:w-[300px] after:h-[300px] after:bg-[url('/src/assets/img/img_keys.svg')] after:bg-cover after:bg-center after:absolute after:bottom-[-40%] after:right-[-45%] after:-z-1 after:opacity-30 after:transform after:-rotate-20">
+        <h1 class="font-[Poppins] font-bold text-[32px] text-left">Login</h1>
+        <form @submit.prevent="onSubmit" class="flex flex-col gap-2 items-center mb-2 mt-5">
+            <input v-model="email" type="email" placeholder="Email"
+                   class="border-[1.44px] border-[#15215C] rounded-[11.5px] px-4 py-1 text-[17.25px]"/>
+            <input v-model="password" type="password" placeholder="Password"
+                   class="border-[1.44px] border-[#15215C] rounded-[11.5px] px-4 py-1 text-[17.25px]"/>
+            <button type="submit" :disabled="loading || success"
+                    class="bg-[#15215C] text-white rounded-[11.5px] px-4 py-1 text-[17.25px] mt-3 w-full">
+                <span v-if="loading">Logging in...</span>
+                <span v-else-if="success">Loading...</span>
+                <span v-else>Log in</span>
+            </button>
 
-        <p v-if="error" class="text-[#FF0000] max-w-[165px]">{{ error.message }}</p>
-        <p v-if="success" class="text-[#005900] max-w-[165px]">Logged in as {{userData.name}}.</p>
-    </form>
-    <article class="bg-[#F3AD3E] text-white text-xs rounded-[11.5px] p-1">
-        <p>zadanie@test.pl test123</p>
-        <p>testowicz@test.pl testowicz</p>
-        <p>testowska@test.pl 123!</p>
-    </article>
-</section>
+            <p v-if="error" class="text-[#FF0000] max-w-[165px]">{{ error.message }}</p>
+            <p v-if="success" class="text-[#005900] max-w-[165px]">Logged in as {{userData.name}}.</p>
+        </form>
+        <article class="bg-[#F3AD3E] text-white text-xs rounded-[11.5px] p-1">
+            <p>zadanie@test.pl test123</p>
+            <p>testowicz@test.pl testowicz</p>
+            <p>testowska@test.pl 123!</p>
+        </article>
+    </section>
+</div>

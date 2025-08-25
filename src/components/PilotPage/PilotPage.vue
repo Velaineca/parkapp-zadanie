@@ -1,14 +1,15 @@
 <template src="./PilotPage.html"></template>
 
 <script lang="ts">
-import {computed, ref} from "vue";
-import {useRouter} from "vue-router";
+import {computed, ref} from "vue"
+import {useRouter} from "vue-router"
 
 export default {
   setup() {
     const router = useRouter()
 
     const gates = ref<string[]>(JSON.parse(sessionStorage.getItem("userGates") || "[]"))
+    const activeGate = ref<number | null>(0) //--mockup highlight just to fit figma file
     const perPage = 4
     const page = ref(1)
 
@@ -18,7 +19,7 @@ export default {
       return gates.value.slice(start, start + perPage)
     })
 
-    return { gates, page, totalPages, pagedGates,router }
+    return { gates, activeGate, page, totalPages, pagedGates,router }
   }
 }
 

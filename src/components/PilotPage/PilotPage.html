@@ -1,30 +1,42 @@
-<section>
-    <fieldset>
-        <button @click="router.push('/login')">←</button>
-        <h1>Otwórz bramę</h1>
+<section class="w-screen h-screen">
+    <fieldset class="flex items-start gap-5 rounded-bl-[16px] rounded-br-[16px] h-[30vh] relative overflow-hidden
+    bg-gradient-to-t from-[#FADF99] from-[30%] to-[#FFB034] to-[100%] p-4 pt-[65px] drop-shadow-[0_4px_5px_rgba(0,0,0,0.08)] md:pl-[5%]">
+        <button @click="router.push('/login')"><img src="../../assets/ico/ico_arrow.svg" aria-label="Log out" title="Log out" alt="Log out"
+        class="border-[2px] border-[#15215C] rounded-3xl w-[40px] h-[40px] p-[6px] cursor-pointer"/></button>
+        <h1 class="font-[Poppins] font-bold text-[32px] text-left w-[100px] leading-[40px]">Otwórz bramę</h1>
+        <img src="../../assets/img/img_keys.svg" alt="keys image" class="absolute opacity-30 h-[30vh] right-[0] bottom-[-5%] lg:bottom-[0] h-[100%] w-[55%] object-cover object-left">
     </fieldset>
 
-    <fieldset>
-        <div>
-            <img alt="pilot image"/>
-            <div>
-                <h2>Długa nazwa pilota</h2>
-                <div v-for="(gate,index) in pagedGates" :key="index">
-                    <button>{{gate}}</button>
+    <fieldset class="flex flex-col items-center justify-center h-[calc(70vh-120px)]">
+        <div class="flex h-full w-full pt-[80px] pb-[40px] justify-between">
+            <img src="../../assets/img/img_pilot.svg" alt="pilot image"
+            class="object-cover object-right w-[30%]
+                    sm:object-contain"/>
+            <div class="flex flex-col justify-between pr-[40px] py-[10px] w-[calc(70%-30px)] overflow-y-auto">
+                <h2 class="text-[24px] font-bold leading-[30px]">Długa nazwa pilota</h2>
+                <div class="flex flex-col">
+                    <div v-for="(gate,index) in pagedGates" :key="index">
+                        <button @click="activeGate = index"
+                                :class="['max-w-[700px] text-[#15215C] rounded-[11.5px] px-3 py-1 text-[17.25px] mt-[20px] w-full min-h-[44px] border-[1px] border-[#15215C] cursor-pointer hover:bg-[#15215C] hover:text-white',
+                                activeGate === index ? 'bg-[#15215C] text-white border-[#15215C]' : 'bg-white text-[#15215C] border-[#15215C] hover:bg-[#15215C] hover:text-white']">{{gate}}</button>
+                    </div>
                 </div>
-                <p>Wybierz bramę, by otworzyć</p>
+                <p class="text-[17px]">Wybierz bramę, by otworzyć</p>
             </div>
         </div>
-        <div>
-            <span v-for="n in totalPages" :key="n" @click="page = n">.</span>
-        </div>
     </fieldset>
 
-    <nav>
-        <button>gps</button>
-        <button>code</button>
-        <button>car</button>
-        <button>wallet</button>
-        <button>menu</button>
+    <nav class="flex justify-center items-center gap-[35px] h-[60px]">
+            <span v-for="n in totalPages" :key="n" @click="page = n"
+                  :class="['h-[20px] w-[20px] rounded-2xl drop-shadow-[1px_1px_2px_rgba(0,0,0,0.45)] cursor-pointer', page === n ? 'bg-[#15215C]' : 'bg-[#fff]']"></span>
+    </nav>
+
+    <nav class="flex justify-around items-center h-[60px] bottom-[0] fixed w-full bg-white
+                md:absolute md:top-[0] md:right-[0] md:w-[400px] md:rounded-bl-[16px] md:drop-shadow-[0_4px_5px_rgba(0,0,0,0.08)]">
+        <button aria-label="gps" class="cursor-pointer"><img src="../../assets/ico/ico_pin.svg" alt="gps" class="contain w-[27px] h-[27px] filter saturate-[0%] brightness-[550%]"/></button>
+        <button aria-label="scan" class="cursor-pointer"><img src="../../assets/ico/ico_scan.svg" alt="scan" class="contain w-[27px] h-[27px] filter saturate-[0%] brightness-[550%]"/></button>
+        <button aria-label="car" class="cursor-pointer"><img src="../../assets/ico/ico_car.svg" alt="car" class="contain w-[27px] h-[27px] filter saturate-[0%] brightness-[550%]"/></button>
+        <button aria-label="wallet" class="cursor-pointer"><img src="../../assets/ico/ico_wallet.svg" alt="wallet" class="contain w-[27px] h-[27px] filter saturate-[0%] brightness-[550%]"/></button>
+        <button aria-label="menu" class="cursor-pointer"><img src="../../assets/ico/ico_menu.svg" alt="menu" class="contain w-[27px] h-[27px]"/></button>
     </nav>
 </section>
