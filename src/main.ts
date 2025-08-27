@@ -5,8 +5,6 @@ import { apolloPlugin } from './plugins/apollo';
 import { router } from './router';
 import ErrorProvider from './components/ErrorProvider/ErrorProvider.vue'
 
-//createApp(App).use(router).use(apolloPlugin).mount('#app');
-
 createApp({
     render: () => h(ErrorProvider,null, {default: () => h(App)})
 }).use(router).use(apolloPlugin).mount('#app');

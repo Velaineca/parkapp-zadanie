@@ -5,13 +5,13 @@ import { reactive, ref } from 'vue';
 import { useMutation } from '@vue/apollo-composable';
 import { LoginDocument } from '../../plugins/gql/graphql';
 import { useRouter } from 'vue-router';
-import {useGlobalError} from "../ErrorProvider/useGlobalError";
+import { useGlobalError } from '../ErrorProvider/useGlobalError';
 
-const email = ref('')
-const password = ref('')
-const success = ref(false)
-const userData = reactive<{ id?: string; email?: string; name?: string }>({})
-const {setError} = useGlobalError()
+const email = ref('');
+const password = ref('');
+const success = ref(false);
+const userData = reactive<{ id?: string; email?: string; name?: string }>({});
+const { setError } = useGlobalError();
 
 const router = useRouter();
 const { mutate, loading, error, onDone } = useMutation(LoginDocument);
