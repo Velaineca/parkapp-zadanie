@@ -1,9 +1,12 @@
-import { createApp } from 'vue';
+import { createApp, h } from 'vue';
 import App from './App.vue';
 import './global.css';
 import { apolloPlugin } from './plugins/apollo';
 import { router } from './router';
+import ErrorProvider from './components/ErrorProvider/ErrorProvider.vue'
 
-//createApp(App).mount('#app');
+//createApp(App).use(router).use(apolloPlugin).mount('#app');
 
-createApp(App).use(router).use(apolloPlugin).mount('#app');
+createApp({
+    render: () => h(ErrorProvider,null, {default: () => h(App)})
+}).use(router).use(apolloPlugin).mount('#app');
