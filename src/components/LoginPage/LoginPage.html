@@ -8,15 +8,15 @@ after:block after:w-[300px] after:h-[300px] after:bg-[url('/src/assets/img/img_k
                    class="border-[1.44px] border-[#15215C] rounded-[11.5px] px-4 py-1 text-[17.25px]"/>
             <input v-model="password" type="password" placeholder="Password"
                    class="border-[1.44px] border-[#15215C] rounded-[11.5px] px-4 py-1 text-[17.25px]"/>
-            <button type="submit" :disabled="loading || success"
-                    class="bg-[#15215C] text-white rounded-[11.5px] px-4 py-1 text-[17.25px] mt-3 w-full">
+            <button type="submit" :disabled="loading || success" data-testid="btn-login"
+                    class="bg-[#15215C] text-white rounded-[11.5px] px-4 py-1 text-[17.25px] mt-3 w-full cursor-pointer hover:bg-white hover:text-[#15215C] border-[1px] border-[#15215C]">
                 <span v-if="loading">Logging in...</span>
                 <span v-else-if="success">Loading...</span>
                 <span v-else>Log in</span>
             </button>
 
-            <p v-if="error" class="text-[#FF0000] max-w-[165px]">{{ error.message }}</p>
-            <p v-if="success" class="text-[#005900] max-w-[165px]">Logged in as {{userData.name}}.</p>
+            <p v-if="error" data-testid="text-error" class="text-[#FF0000] max-w-[165px]">{{ error.message }}</p>
+            <p v-if="success" data-testid="text-success" class="text-[#005900] max-w-[165px]">Logged in as {{userData.name}}.</p>
         </form>
         <article class="bg-[#F3AD3E] text-white text-xs rounded-[11.5px] p-1">
             <p>zadanie@test.pl test123</p>

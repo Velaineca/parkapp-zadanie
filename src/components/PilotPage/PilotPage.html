@@ -27,7 +27,7 @@
     </fieldset>
 
     <nav class="flex justify-center items-center gap-[35px] h-[60px]">
-            <span v-for="n in totalPages" :key="n" @click="page = n"
+            <span :data-testid="`bullet-${n}`" v-for="n in totalPages" :key="n" @click="page = n"
                   :class="['h-[20px] w-[20px] rounded-2xl drop-shadow-[1px_1px_2px_rgba(0,0,0,0.45)] cursor-pointer', page === n ? 'bg-[#15215C]' : 'bg-[#fff]']"></span>
     </nav>
 
